@@ -13,8 +13,7 @@
     z-index: 1000;
 }
 
-.vmodal.open .modal-window {
-    transform: translateY(100px);
+.vmodal.open .modal-window {    transform: translateY(100px);
 }
 
 .vmodal.open .modal-overlay {
