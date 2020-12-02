@@ -73,7 +73,7 @@ $.modal = function (options) {
     const modal = {
         open() {
             if (destroyed) {
-                console.log('Modal is destroyed')
+                return  console.log('Modal is destroyed')
             }
             !closing && $modal.classList.add('open')
         },
@@ -83,12 +83,16 @@ $.modal = function (options) {
             $modal.classList.add('hide')
             setTimeout(() => {
                 $modal.classList.remove('hide')
+                closing = false
+                if (typeof options.onClose === 'function') {
+                    options.onClose
+                }
             }, animationSpeed)
         }
     }
 
     const listener = event => {
-        console.log('clicked', event.target.dataset.close)
+        // console.log('clicked', event.target.dataset.close)
         if (event.target.dataset.close) {
             modal.close()
         }
