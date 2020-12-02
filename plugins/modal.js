@@ -51,18 +51,6 @@ function _createModal(options) {
     return modal
 }
 
-/*Передать заголовок модального окна чтобы он передавался title : string
-closable: boolean если true крестик показывается, если false то его нет
-content: string динамический контент в формате html
-width: string (400px) ширина модального окна
-реализовать метод destroy(): void должен удалять $modal
-При нажатии на креcтик модальное окно должно закрываться и при нажатии на пустое пространство модалка должна закрываться ( все с анимацией)
-Публичный метод SetContent(html: string): void
-Hooks - onClose(): void вызывается когда МО закрыто
-onOpen(): void
-beforeClose(): boolean | если true то МО можно закрыть false - не закрывается
-animate css
- */
 
 $.modal = function (options) {
     const $modal = _createModal(options)
@@ -92,7 +80,6 @@ $.modal = function (options) {
     }
 
     const listener = event => {
-        // console.log('clicked', event.target.dataset.close)
         if (event.target.dataset.close) {
             modal.close()
         }
